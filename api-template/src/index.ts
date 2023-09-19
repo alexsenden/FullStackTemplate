@@ -1,11 +1,15 @@
 import express, { Express, NextFunction, Request, Response } from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 import exampleRouter from './routes/example/exampleRouter'
 
 dotenv.config()
 
 const app: Express = express()
+
+// Allow different origins to use the API
+app.use(cors())
 
 // Set up routers
 app.use('/example', exampleRouter)
